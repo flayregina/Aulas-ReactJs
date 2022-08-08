@@ -1,24 +1,30 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
-import Names from './Names'
 export default function App() {
 
-  const [name, setName] = useState('')
-  const [names, setNames] = useState([])
+  const [escuro, setEscuro] = useState(false)
 
-  function saveName() {
-    saveName(tmp => [...tmp, name])
+  const tema = {
+    backgroundColor: escuro ? "black" : "white",
+    color: escuro ? "whitw" : "black"
   }
 
   return (
-    <>
-      <h3>React Unique ID</h3>
+    <div style={tema}>
+      <h1>React - Tema Claro/Escuro</h1>
       <hr />
-      <input type="text" onChange={e => setName(e.target.value)} value={name} />
-      <button onClick={saveName}>Save Name</button>
-      <hr />
-      <Names names={names} />
-    </>
+      <button onClick={() => { setEscuro(old => !old) }}>Tema</button>
+      <p>Occaecat anim excepteur ad commodo ea anim mollit
+        ut nostrud in enim aliquip. Esse nostrud quis fugiat
+        consequat eu aliquip consectetur fugiat mollit aliqua pariatur
+        aliquip.
+        Excepteur sunt sint veniam ad consequat cillum cupidatat.
+        Sint nulla ipsum nostrud cupidatat deserunt magna ad aliquip. Id ea cupidatat
+        eu est voluptate culpa et dolore dolor qui fugiat irure elit.
+        Ullamco aliquip adipisicing est laborum. Aliqua elit dolor nulla fugiat cupidatat sunt culpa
+        Lorem consequat eu est.
+      </p>
+    </div>
   )
 }
 
